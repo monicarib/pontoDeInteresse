@@ -3,10 +3,15 @@ package com.xyinc.poi.api.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.geo.Distance;
+import org.springframework.data.geo.Point;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import com.xyinc.poi.api.documents.PontoDeInteresse;
 import com.xyinc.poi.api.repositories.PontoDeInteresseRepository;
+import com.xyinc.poi.api.requests.ListarPorProximidadeRequest;
 
 @Service
 public class PontoDeInteresseService implements IPontoDeInteresseService {
@@ -25,9 +30,9 @@ public class PontoDeInteresseService implements IPontoDeInteresseService {
 	}
 
 	@Override
-	public List<PontoDeInteresse> listarPorProximidade(String pontoX, String pontoY) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<PontoDeInteresse> listarPorProximidade(ListarPorProximidadeRequest listarPorProximidadeRequest) {
+		Point ponto = new Point(listarPorProximidadeRequest.getPontoX(), listarPorProximidadeRequest.getPontoY());
+		Distance distancia = new Distance(listarPorProximidadeRequest.getDistanciaMaxima());
+		return this.pontoDeInteresseRepository.findByLocalizacaoNear(ponto, distancia);
 	}
-
 }
