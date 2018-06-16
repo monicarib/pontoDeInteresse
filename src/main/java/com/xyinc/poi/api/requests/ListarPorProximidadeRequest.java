@@ -1,10 +1,7 @@
 package com.xyinc.poi.api.requests;
 
-import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
-import com.xyinc.poi.api.documents.Localizacao;
 
 public class ListarPorProximidadeRequest {
 	private Integer distanciaMaxima;

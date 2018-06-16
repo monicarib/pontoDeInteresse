@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.geo.Distance;
-import com.mongodb.client.model.geojson.Point;
 import com.xyinc.poi.api.documents.PontoDeInteresse;
 
 public interface PontoDeInteresseRepository extends MongoRepository<PontoDeInteresse, String> {
