@@ -2,6 +2,7 @@ package com.xyinc.poi.api.documents;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -35,8 +36,8 @@ public class PontoDeInteresse {
 		this.nome = nome;
 	}
 	
-	@Min(0)
-	@NotEmpty(message = "O atributo pontoX não pode ser vazio.")
+	@NotNull(message = "O atributo pontoX não pode ser vazio.")
+	@Min(value = 0, message = "O atributo pontoX deve ser um inteiro positivo.")
 	public Integer getPontoX() {
 		return pontoX;
 	}
@@ -45,8 +46,8 @@ public class PontoDeInteresse {
 		this.pontoX = pontoX;
 	}
 	
-	@Min(0)
-	@NotEmpty(message = "O atributo pontoY não pode ser vazio.")
+	@NotNull(message = "O atributo pontoY não pode ser vazio.")
+	@Min(value = 0, message = "O atributo pontoY deve ser um inteiro positivo.")
 	public Integer getPontoY() {
 		return pontoY;
 	}
