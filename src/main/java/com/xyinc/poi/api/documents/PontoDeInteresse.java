@@ -1,5 +1,6 @@
 package com.xyinc.poi.api.documents;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -12,8 +13,7 @@ public class PontoDeInteresse {
 	@Id
 	private String id;
 	private String nome;
-	private Integer pontoX;
-	private Integer pontoY;
+	private Localizacao localizacao;
 	
 	public PontoDeInteresse() {
 		
@@ -35,24 +35,14 @@ public class PontoDeInteresse {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	@NotNull(message = "O atributo pontoX não pode ser vazio.")
-	@Min(value = 0, message = "O atributo pontoX deve ser um inteiro positivo.")
-	public Integer getPontoX() {
-		return pontoX;
+
+	@Valid
+	@NotNull (message = "A localização não pode ser vazia.")
+	public Localizacao getLocalizacao() {
+		return localizacao;
 	}
 
-	public void setPontoX(Integer pontoX) {
-		this.pontoX = pontoX;
-	}
-	
-	@NotNull(message = "O atributo pontoY não pode ser vazio.")
-	@Min(value = 0, message = "O atributo pontoY deve ser um inteiro positivo.")
-	public Integer getPontoY() {
-		return pontoY;
-	}
-
-	public void setPontoY(Integer pontoY) {
-		this.pontoY = pontoY;
+	public void setLocalizacao(Localizacao localizacao) {
+		this.localizacao = localizacao;
 	}
 }
