@@ -4,17 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xyinc.poi.api.documents.PontoDeInteresse;
+import com.xyinc.poi.api.requests.ListarPorProximidadeRequest;
 import com.xyinc.poi.api.responses.Response;
 import com.xyinc.poi.api.services.PontoDeInteresseService;
 
@@ -38,5 +45,15 @@ public class PontoDeInteresseController {
 		}
 		
 		return ResponseEntity.ok(new Response<PontoDeInteresse>(this.pontoDeInteresseService.cadastrar(pontoDeInteresse)));
+	}
+	
+	@GetMapping(path = "/listarPorProximidade")
+	public ResponseEntity<Response<List<PontoDeInteresse>>> listarPorProximidade(@Valid @ModelAttribute ListarPorProximidadeRequest listarPorProximidadeRequest, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			List<String> erros = new ArrayList<String>();
+			result.getAllErrors().forEach(erro -> erros.add(erro.getDefaultMessage()));
+			return ResponseEntity.badRequest().body(new Response<List<PontoDeInteresse>>(erros));
+		}
+		return ResponseEntity.ok(new Response<List<PontoDeInteresse>>(this.pontoDeInteresseService.listarPorProximidade(listarPorProximidadeRequest)));
 	}
 }
