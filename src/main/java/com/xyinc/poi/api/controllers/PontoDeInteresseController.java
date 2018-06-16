@@ -31,11 +31,12 @@ public class PontoDeInteresseController {
 	
 	@PostMapping
 	public ResponseEntity<Response<PontoDeInteresse>> cadastrar(@Valid @RequestBody PontoDeInteresse pontoDeInteresse, BindingResult result) {
-		if(result.hasErrors()) {
+		if (result.hasErrors()) {
 			List<String> erros = new ArrayList<String>();
 			result.getAllErrors().forEach(erro -> erros.add(erro.getDefaultMessage()));
 			return ResponseEntity.badRequest().body(new Response<PontoDeInteresse>(erros));
 		}
+		
 		return ResponseEntity.ok(new Response<PontoDeInteresse>(this.pontoDeInteresseService.cadastrar(pontoDeInteresse)));
 	}
 }
