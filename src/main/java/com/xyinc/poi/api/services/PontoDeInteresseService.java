@@ -33,4 +33,8 @@ public class PontoDeInteresseService implements IPontoDeInteresseService {
 		Distance distancia = new Distance(listarPorProximidadeRequest.getDistanciaMaxima());
 		return this.pontoDeInteresseRepository.findByLocalizacaoNear(ponto, distancia);
 	}
+	
+	public void deletarTodos() {
+		this.pontoDeInteresseRepository.deleteAll();
+	}
 }
