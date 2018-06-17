@@ -21,6 +21,11 @@ public class PontoDeInteresse {
 		
 	}
 
+	public PontoDeInteresse(String nome, Localizacao localizacao) {
+		this.nome = nome;
+		this.localizacao = localizacao;
+	}
+
 	public String getId() {
 		return id;
 	}

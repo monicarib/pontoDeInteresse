@@ -7,6 +7,15 @@ public class Localizacao {
 	private Integer pontoX;
 	private Integer pontoY;
 	
+	public Localizacao() {
+		
+	}
+	
+	public Localizacao(Integer pontoX, Integer pontoY) {
+		this.pontoX = pontoX;
+		this.pontoY = pontoY;
+	}
+	
 	@NotNull(message = "O atributo pontoX não pode ser vazio.")
 	@Min(value = 0, message = "O atributo pontoX deve ser um inteiro positivo.")
 	public Integer getPontoX() {
