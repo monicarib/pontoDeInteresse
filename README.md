@@ -14,18 +14,18 @@ A API RESTful foi desenvolvida com Spring Boot, utilizando os recursos do JUnit 
 - Java JDK
 
 ### 2. Gerar Artefato
-No terminal de comandos, acessar o diretório do projeto e executar o comando:
+Uma vez que as dependências acima foram instaladas, no terminal de comandos, acesse o diretório do projeto e execute o comando:
 ```
 mvn clean install
 ``` 
 ### 3. Gerar as imagens do Docker
-Ainda no mesmo diretório, executar a seguinte instrução:
+Ainda no mesmo diretório, execute a seguinte instrução:
 ```
 docker-compose build
 ``` 
 
 ## Execução do Projeto
-No diretório do projeto, executar:
+No diretório do projeto, execute:
 ```
 docker-compose up -d
 ``` 
