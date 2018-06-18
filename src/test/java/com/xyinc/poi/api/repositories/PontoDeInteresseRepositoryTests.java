@@ -71,7 +71,7 @@ public class PontoDeInteresseRepositoryTests {
     	this.pontoDeInteresseService.cadastrar(churrascaria);
     	
     	List<PontoDeInteresse> pontosCadastrados = this.pontoDeInteresseService.listarTodos();
-    	assertEquals(6, pontosCadastrados.size());
+    	assertEquals(7, pontosCadastrados.size());
     }
     
     public void deletarTodosPontosDeInteresse() {
