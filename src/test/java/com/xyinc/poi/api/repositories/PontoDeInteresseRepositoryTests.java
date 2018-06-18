@@ -1,8 +1,6 @@
 package com.xyinc.poi.api.repositories;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -71,6 +68,7 @@ public class PontoDeInteresseRepositoryTests {
     	this.pontoDeInteresseService.cadastrar(floricultura);
     	this.pontoDeInteresseService.cadastrar(supermercado);
     	this.pontoDeInteresseService.cadastrar(pub);
+    	this.pontoDeInteresseService.cadastrar(churrascaria);
     	
     	List<PontoDeInteresse> pontosCadastrados = this.pontoDeInteresseService.listarTodos();
     	assertEquals(6, pontosCadastrados.size());
