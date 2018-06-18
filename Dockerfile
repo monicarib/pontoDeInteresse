@@ -5,7 +5,7 @@ RUN apk update && apk add bash
 RUN mkdir -p /opt/app
 ENV PROJECT_HOME /opt/app
 
-COPY artifact/pontoDeInteresse-0.0.1-SNAPSHOT.jar $PROJECT_HOME/pontoDeInteresse-0.0.1-SNAPSHOT.jar
+COPY target/pontoDeInteresse-0.0.1-SNAPSHOT.jar $PROJECT_HOME/pontoDeInteresse-0.0.1-SNAPSHOT.jar
 
 WORKDIR $PROJECT_HOME
 
